@@ -1,9 +1,6 @@
 package com.blackhat.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +12,8 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "customer_id_seq", sequenceName = "customer_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "customer_id_seq")
     private Long id;
     private String name;
     private String email;

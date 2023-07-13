@@ -4,3 +4,18 @@ server:
     include-message: always
 
 
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5342/customer
+    username: blackhat
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  main:
+    web-application-type: servlet

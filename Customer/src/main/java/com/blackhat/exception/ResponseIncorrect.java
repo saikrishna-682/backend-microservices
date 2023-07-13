@@ -3,10 +3,10 @@ package com.blackhat.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(code = HttpStatus.NOT_FOUND)
-public class ResponseNotFound extends RuntimeException{
+@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+public class ResponseIncorrect extends RuntimeException{
 
-    public ResponseNotFound(String message){
+    public ResponseIncorrect(String message){
         super(message);
     }
 }

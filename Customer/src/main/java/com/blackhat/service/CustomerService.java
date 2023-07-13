@@ -45,10 +45,26 @@ public class CustomerService {
             presentCustomer.setEmail(customer.getEmail());
             presentCustomer.setAge(customer.getAge());
 
+            if(!compareCustomerRecords(presentCustomer, customer)){
+                throw new ResponseIncorrect("Data has not been modified");
+            }
+//            if(existingName(customer.getName())){
+//                throw new ResponseIncorrect("Name already exists, Try again!!");
+//            }
+
+
+
             return customerRepository.save(presentCustomer);
         }else{
             return null;
         }
+    }
+
+    public boolean compareCustomerRecords(Customer presentRecord, Customer oldCustomer){
+        return !presentRecord.equals(oldCustomer);
+    }
+    public boolean existingName(String name){
+        return customerRepository.existsByName(name);
     }
 
     public void deleteCustomer(Long id) {

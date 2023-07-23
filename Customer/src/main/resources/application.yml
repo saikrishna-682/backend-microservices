@@ -6,12 +6,12 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5342/customer
+    url: jdbc:postgresql://localhost:5432/customer
     username: blackhat
     password: password
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

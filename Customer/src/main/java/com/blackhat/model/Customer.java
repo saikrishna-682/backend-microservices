@@ -14,7 +14,11 @@ import lombok.NoArgsConstructor;
 //        }
 //)
 @Entity
-@Table(name = "customer")
+@Table(name = "customer",
+            uniqueConstraints = {
+        @UniqueConstraint(name = "customer_email_unique",
+        columnNames = "email")
+            })
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
